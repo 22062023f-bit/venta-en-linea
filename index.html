@@ -815,14 +815,6 @@
         urlHint: "Pega el enlace del producto de Shein para identificarlo; puedes completar nombre y precio abajo.",
         costLabel: "Costo del producto de Shein ($)"
       },
-      "TikTok Shop": {
-        title: "Agrega un producto de TikTok Shop",
-        nameLabel: "Nombre del producto de TikTok Shop",
-        namePlaceholder: "Ej.: producto del video o de la tienda",
-        urlLabel: "Enlace del producto de TikTok Shop (opcional)",
-        urlHint: "Pega el enlace del producto de TikTok Shop para identificarlo; puedes completar nombre y precio abajo.",
-        costLabel: "Costo del producto de TikTok Shop ($)"
-      },
       "Otra tienda": {
         title: "Agrega un producto de otra tienda",
         nameLabel: "Nombre del producto",
@@ -838,9 +830,7 @@
     const sourceIcons = {
       Temu: "bag",
       Amazon: "box",
-      AliExpress: "globe",
       Shein: "shirt",
-      "TikTok Shop": "music",
       "Otra tienda": "plus",
       Netflix: "play",
       "Disney+": "spark",
@@ -1709,9 +1699,7 @@
       const storeDomains = {
         Temu: "temu.com",
         Amazon: "amazon.com",
-        AliExpress: "aliexpress.com",
         Shein: "shein.com",
-        "TikTok Shop": "shop.tiktok.com"
       };
       const domain = storeDomains[elements.itemSource.value];
       const searchTerms = domain ? `site:${domain} ${query}` : `${elements.itemSource.value} ${query}`;
