@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <link rel="icon" type="image/png" href="Emblema neón BARRIOS STORE.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f5f3ef">
-  <title>Barrios | Ventas en línea</title>
+  <meta name="theme-color" content="#0f0e17">
+  <title>B-STORE SV | Tienda digital</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f5f3ef;
-      --card: #fff;
-      --input: #f8f7f5;
-      --border: #e9e5df;
-      --accent: #6558d3;
-      --accent-dark: #5043bd;
+      color-scheme: dark;
+      --bg: #0f0e17;
+      --card: #1a1830;
+      --input: #221f3a;
+      --border: #2e2b48;
+      --accent: #7b6cf0;
+      --accent-dark: #6558d3;
       --yellow: #f3b84b;
-      --danger: #c54e5b;
-      --text: #25233a;
-      --muted: #777487;
+      --danger: #e06b78;
+      --text: #e8e6f5;
+      --muted: #9a97b5;
       --radius: 20px;
     }
 
@@ -86,17 +87,25 @@
     .feedback {
       margin: 0 0 16px;
       padding: 12px 15px;
-      border: 1px solid #c8e8d5;
+      border: 1px solid #2a5a3d;
       border-radius: 12px;
-      background: #effaf3;
-      color: #23623b;
+      background: #1a2e22;
+      color: #6dcb8a;
       font-size: .86rem;
       font-weight: 700;
+      animation: feedback-in .35s cubic-bezier(.22, 1, .36, 1);
     }
-    .feedback.error { border-color: #f1c8cc; background: #fff1f2; color: #8d303b; }
-    .main-nav { display: flex; gap: 8px; margin: 0 0 20px; padding: 6px; border: 1px solid var(--border); border-radius: 15px; background: #fff; }
-    .wizard-step { animation: step-in .25s ease-out; }
-    @keyframes step-in { from { opacity: .45; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+    .feedback.error { border-color: #5a2a30; background: #2e1a1c; color: #e06b78; }
+    @keyframes feedback-in {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .main-nav { display: flex; gap: 8px; margin: 0 0 20px; padding: 6px; border: 1px solid var(--border); border-radius: 15px; background: var(--card); }
+    .wizard-step { animation: step-in .38s cubic-bezier(.22, 1, .36, 1); }
+    @keyframes step-in {
+      from { opacity: 0; transform: translateY(18px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
     .wizard-back { margin-top: 14px; }
     .nav-button {
       flex: 1;
@@ -108,21 +117,23 @@
       color: var(--muted);
       cursor: pointer;
       font-weight: 800;
-      transition: background .2s, color .2s, transform .2s;
+      transition: background .25s ease, color .25s ease, transform .2s ease, box-shadow .25s ease;
     }
-    .nav-button:hover { background: #f3f1fb; color: var(--accent); }
+    .nav-button:hover { background: #2a2745; color: var(--accent); transform: translateY(-1px); }
+    .nav-button:active { transform: scale(.97); }
     .nav-button[aria-pressed="true"] { background: var(--accent); color: white; box-shadow: 0 5px 12px #6558d333; }
     .section-intro { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: 26px 2px 14px; }
-    .section-intro h2 { margin: 0; color: #242137; font: 800 1.35rem "Manrope", sans-serif; letter-spacing: -.04em; }
+    .section-intro h2 { margin: 0; color: var(--text); font: 800 1.35rem "Manrope", sans-serif; letter-spacing: -.04em; }
     .section-intro p { margin: 5px 0 0; color: var(--muted); font-size: .9rem; }
-    .count-pill { padding: 7px 11px; border-radius: 99px; background: #ece9fb; color: var(--accent); font-size: .77rem; font-weight: 800; white-space: nowrap; }
+    .count-pill { padding: 7px 11px; border-radius: 99px; background: #2a2745; color: var(--accent); font-size: .77rem; font-weight: 800; white-space: nowrap; transition: transform .2s ease, background .25s ease; }
+    .count-pill:hover { transform: scale(1.05); }
     .demo-note {
       margin: 0 0 18px;
       padding: 12px 15px;
-      border: 1px solid #eddfbb;
+      border: 1px solid #5a4a20;
       border-radius: 12px;
-      background: #fff9e9;
-      color: #785e25;
+      background: #2a2415;
+      color: #e0c878;
       font-size: .82rem;
       line-height: 1.5;
     }
@@ -133,6 +144,10 @@
       border-radius: var(--radius);
       background: var(--card);
       box-shadow: 0 5px 18px #342d5709;
+      transition: box-shadow .3s ease, border-color .25s ease;
+    }
+    .card:hover {
+      box-shadow: 0 8px 24px #342d5720;
     }
     .card h2 {
       margin: 0 0 15px;
@@ -143,7 +158,7 @@
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
     .field { min-width: 0; }
     .field.full { grid-column: 1 / -1; }
-    label { display: block; margin: 0 0 7px; color: #555267; font-size: .82rem; font-weight: 700; }
+    label { display: block; margin: 0 0 7px; color: var(--muted); font-size: .82rem; font-weight: 700; }
     input, select {
       width: 100%;
       min-height: 47px;
@@ -158,7 +173,7 @@
       outline: 2px solid var(--accent);
       outline-offset: 2px;
     }
-    input::placeholder { color: #a5a2b1; }
+    input::placeholder { color: #6b6885; }
     .hint { margin: 7px 0 0; color: var(--muted); font-size: .78rem; line-height: 1.5; }
     .button {
       min-height: 47px;
@@ -167,14 +182,14 @@
       border-radius: 12px;
       cursor: pointer;
       font-weight: 800;
-      transition: background .2s, box-shadow .2s, transform .15s, border-color .2s;
+      transition: background .25s ease, box-shadow .25s ease, transform .2s cubic-bezier(.22, 1, .36, 1), border-color .25s ease;
     }
-    .button:hover { transform: translateY(-1px); }
-    .button:active { transform: scale(.985); }
+    .button:hover { transform: translateY(-2px); }
+    .button:active { transform: scale(.97); }
     .primary { background: var(--accent); color: #fff; box-shadow: 0 6px 14px #6558d32b; }
     .primary:hover { background: var(--accent-dark); }
-    .secondary { border: 1px solid #d9d5e8; background: #f6f5fa; color: #353149; }
-    .secondary:hover { border-color: #aaa2df; background: #efedfa; box-shadow: 0 4px 12px #443a9212; }
+    .secondary { border: 1px solid var(--border); background: #252240; color: var(--text); }
+    .secondary:hover { border-color: #4a4570; background: #2e2b48; box-shadow: 0 4px 12px #443a9212; }
     .wide { width: 100%; }
     .source-menu { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
     .source-card {
@@ -187,24 +202,25 @@
       padding: 16px;
       border: 1px solid var(--border);
       border-radius: 16px;
-      background: linear-gradient(150deg, #fff, #faf9f7);
+      background: linear-gradient(150deg, #1e1c32, #1a1830);
       cursor: pointer;
       text-align: left;
-      transition: transform .18s, box-shadow .18s, border-color .18s;
+      transition: transform .28s cubic-bezier(.22, 1, .36, 1), box-shadow .28s ease, border-color .25s ease, background .25s ease;
     }
-    .source-card:hover, .source-card[aria-pressed="true"] { transform: translateY(-2px); border-color: #bdb6ed; box-shadow: 0 10px 20px #433a8d12; }
-    .source-card[aria-pressed="true"] { background: #f6f4ff; }
+    .source-card:hover, .source-card[aria-pressed="true"] { transform: translateY(-4px) scale(1.02); border-color: #5a52a0; box-shadow: 0 14px 28px #433a8d40; }
+    .source-card:active { transform: translateY(-1px) scale(.99); }
+    .source-card[aria-pressed="true"] { background: #252245; }
     .plan-card { min-height: 92px; }
-    .plan-card .source-caption { color: var(--accent-dark); font-size: .82rem; }
-    .price-estimate { margin: 7px 0 0; color: var(--accent-dark); font-size: .82rem; font-weight: 700; }
-    .source-icon { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 13px; background: #eeebff; color: var(--accent); font-size: 1.05rem; font-weight: 800; }
+    .plan-card .source-caption { color: var(--accent); font-size: .82rem; }
+    .price-estimate { margin: 7px 0 0; color: var(--accent); font-size: .82rem; font-weight: 700; }
+    .source-icon { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 13px; background: #2a2745; color: var(--accent); font-size: 1.05rem; font-weight: 800; }
     .source-name { font-weight: 800; font-size: .91rem; }
     .source-caption { color: var(--muted); font-size: .73rem; }
     .category-panel[hidden] { display: none; }
     .form-heading { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
     .form-heading .source-icon { flex: 0 0 auto; }
     .form-heading h2 { margin: 0; }
-    .field input[aria-invalid="true"] { border-color: var(--danger); background: #fff7f7; }
+    .field input[aria-invalid="true"] { border-color: var(--danger); background: #2e1a1c; }
     .order-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(275px, .8fr); align-items: start; gap: 16px; }
     .order-side { position: sticky; top: 16px; }
     .link-button {
@@ -223,7 +239,7 @@
     .item-list { display: grid; gap: 10px; }
     .empty {
       padding: 24px 14px;
-      border: 1px dashed #d7d3cd;
+      border: 1px dashed #3a3758;
       border-radius: 14px;
       color: var(--muted);
       text-align: center;
@@ -237,10 +253,13 @@
       padding: 13px;
       border: 1px solid var(--border);
       border-radius: 14px;
-      background: #faf9f7;
-      animation: item-added .28s ease-out;
+      background: #1e1c32;
+      animation: item-added .4s cubic-bezier(.22, 1, .36, 1);
     }
-    @keyframes item-added { from { opacity: .4; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes item-added {
+      from { opacity: 0; transform: translateY(12px) scale(.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
     .item h3 { margin: 0 0 5px; font-size: 1rem; overflow-wrap: anywhere; }
     .item p { margin: 3px 0; color: var(--muted); font-size: .8rem; overflow-wrap: anywhere; }
     .item .price { color: var(--accent); font: 800 1rem "Manrope", sans-serif; }
@@ -248,23 +267,26 @@
     .remove {
       min-height: 35px;
       padding: 6px 9px;
-      border: 1px solid #f2d5d7;
+      border: 1px solid #5a2a30;
       border-radius: 9px;
-      background: #fff2f2;
+      background: #2e1a1c;
       color: var(--danger);
       cursor: pointer;
       font-size: .78rem;
+      transition: background .2s ease, transform .15s ease, border-color .2s ease;
     }
+    .remove:hover { background: #3a2226; transform: scale(1.03); }
+    .remove:active { transform: scale(.96); }
     .summary {
-      border-color: #e4e0f8;
-      background: linear-gradient(145deg, #fff, #f7f5ff);
+      border-color: #3a3560;
+      background: linear-gradient(145deg, #1e1c32, #1a1830);
     }
     .total-row {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       padding: 9px 0;
-      border-bottom: 1px solid #efedf2;
+      border-bottom: 1px solid #2e2b48;
       font-size: .9rem;
     }
     .total-row:last-child { border: 0; }
@@ -279,15 +301,15 @@
     .text-button:hover { text-decoration: underline; }
     .proof-box { display: grid; gap: 12px; }
     .proof-file { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
-    .proof-label { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 13px; border: 1px dashed #bdb6dc; border-radius: 11px; background: #f8f7ff; color: #48406f; cursor: pointer; font-size: .85rem; font-weight: 800; }
-    .proof-label:hover { background: #efedfa; border-color: var(--accent); }
+    .proof-label { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 13px; border: 1px dashed #4a4570; border-radius: 11px; background: #221f3a; color: var(--muted); cursor: pointer; font-size: .85rem; font-weight: 800; }
+    .proof-label:hover { background: #2a2745; border-color: var(--accent); }
     .proof-file:focus-visible + .proof-label { outline: 2px solid var(--accent); outline-offset: 2px; }
-    .proof-preview { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 10px; border: 1px solid var(--border); border-radius: 12px; background: #faf9fc; }
+    .proof-preview { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 10px; border: 1px solid var(--border); border-radius: 12px; background: #1e1c32; }
     .proof-preview img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
     .proof-filename { overflow-wrap: anywhere; color: var(--text); font-size: .78rem; font-weight: 700; }
     .proof-status { min-height: 1.2em; margin: 0; color: var(--muted); font-size: .78rem; }
     .proof-status.error { color: var(--danger); }
-    .proof-status.success { color: #23623b; }
+    .proof-status.success { color: #6dcb8a; }
     .message-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 10px; }
     .actions { display: grid; grid-template-columns: 1fr; gap: 10px; }
     #whatsapp-output {
@@ -295,7 +317,7 @@
       min-height: 150px;
       margin-top: 12px;
       padding: 12px;
-      border: 1px solid #c7c1ef;
+      border: 1px solid #4a4570;
       border-radius: 11px;
       background: var(--input);
       color: var(--text);
@@ -358,7 +380,7 @@
     <header>
       <div class="brand-row">
         <div>
-          <div class="logo">BARRIOS<span>.</span></div>
+          <div class="logo">B-STORE <span>SV</span></div>
           <p>Tu tienda digital, fácil y segura</p>
         </div>
         <div class="brand-tag">BETA PROGRAM los precios podrian no estar actualizados</div>
@@ -382,7 +404,7 @@
           </div>
           <div class="field">
             <label for="customer-user">Usuario o contacto</label>
-            <input id="customer-user" type="text" maxlength="80" placeholder="Ej.: @juanito el pro o teléfono" required>
+            <input id="customer-user" type="text" maxlength="80" placeholder="Ej.: @juanito el pro 503" required>
           </div>
         </div>
         <p class="hint">El pedido y estos datos se guardan localmente en este dispositivo.</p>
@@ -615,17 +637,17 @@
         </div>
       </section>
       <div class="actions">
-        <button class="button primary wide" id="share-button" type="button"><svg class="icon"><use href="#icon-send"></use></svg> Compartir pedido y comprobante</button>
+        <button class="button primary wide" id="share-button" type="button"><svg class="icon"><use href="#icon-send"></use></svg> Enviar pedido y foto por WhatsApp</button>
       </div>
       <textarea id="whatsapp-output" aria-label="Resumen del pedido para WhatsApp" readonly hidden></textarea>
       <div class="message-actions" id="message-actions" hidden>
-        <a id="whatsapp-link" class="button primary wide" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#icon-send"></use></svg> Abrir WhatsApp para adjuntar la imagen</a>
+        <a id="whatsapp-link" class="button primary wide" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#icon-send"></use></svg> Abrir chat de WhatsApp</a>
         <button class="button secondary wide" id="copy-message-button" type="button"><svg class="icon"><use href="#icon-copy"></use></svg> Copiar mensaje</button>
       </div>
       <button class="button secondary wide wizard-back" id="payment-back" type="button">← Volver al pedido</button>
     </section>
     <footer class="app-footer">
-      <span class="logo">BARRIOS<span>.</span></span>
+      <span class="logo">B-STORE <span>SV</span></span>
       <a href="https://wa.me/50378800958" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
       <span>Pedidos personalizados</span>
     </footer>
@@ -783,14 +805,8 @@
         urlHint: "Pega el enlace del producto de Amazon para identificarlo; puedes completar nombre y precio abajo.",
         costLabel: "Costo del producto de Amazon ($)"
       },
-      AliExpress: {
-        title: "Agrega un producto de AliExpress",
-        nameLabel: "Nombre del producto de AliExpress",
-        namePlaceholder: "Ej.: funda, cable o accesorio",
-        urlLabel: "Enlace del producto de AliExpress (opcional)",
-        urlHint: "Pega el enlace del producto de AliExpress para identificarlo; puedes completar nombre y precio abajo.",
-        costLabel: "Costo del producto de AliExpress ($)"
-      },
+      
+
       Shein: {
         title: "Agrega un producto de Shein",
         nameLabel: "Nombre del producto de Shein",
@@ -1386,7 +1402,7 @@
       const customer = document.getElementById("customer-name").value.trim() || "Sin nombre";
       const contact = document.getElementById("customer-user").value.trim() || "Sin contacto";
       const lines = [
-        "RECIBO DE PEDIDO - BARRIOS",
+        "RECIBO DE PEDIDO - B-STORE SV",
         `Fecha: ${new Date().toLocaleString("es-SV")}`,
         `Cliente: ${customer}`,
         `Contacto: ${contact}`,
@@ -1483,7 +1499,7 @@
       context.fillRect(28, 28, 944, canvas.height - 56);
       context.fillStyle = "#322c57";
       context.font = "bold 38px Arial";
-      context.fillText("BARRIOS", contentX, 92);
+      context.fillText("B-STORE SV", contentX, 92);
       context.fillStyle = "#6558d3";
       context.fillRect(contentX, 116, maxWidth, 4);
       let y = 164;
@@ -1770,7 +1786,7 @@
         return;
       }
       const lines = [
-        "*PEDIDO BARRIOS*",
+        "*PEDIDO B-STORE SV*",
         `Cliente: ${customer}`,
         `Contacto: ${user}`,
         "",
@@ -1817,7 +1833,7 @@
           navigator.canShare({ files: [proofFile] })) {
         try {
           await navigator.share({
-            title: "Pedido Barrios",
+            title: "Pedido B-STORE SV",
             text: elements.whatsappOutput.value,
             files: [proofFile]
           });
@@ -1829,10 +1845,13 @@
             return;
           }
           console.error("No se pudo compartir la imagen directamente.", error);
-          showFeedback("No se pudo adjuntar automáticamente. Abre WhatsApp y agrega la imagen seleccionada.", true);
+          showFeedback("No se pudo compartir la foto automáticamente. Se abrirá WhatsApp para que la adjuntes con el clip 📎.", true);
+          window.open(elements.whatsappLink.href, "_blank", "noopener,noreferrer");
+          return;
         }
       } else {
-        showFeedback("El navegador no permite adjuntar automáticamente. Abre WhatsApp y agrega la imagen seleccionada.");
+        showFeedback("WhatsApp se abrirá con el pedido escrito. Adjunta la foto manualmente con el clip 📎.");
+        window.open(elements.whatsappLink.href, "_blank", "noopener,noreferrer");
       }
       elements.whatsappLink.focus();
     });
